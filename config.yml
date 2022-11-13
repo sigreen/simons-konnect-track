@@ -1,0 +1,10 @@
+version: "3"
+virtualmachines:
+- name: container
+  image: ubuntu-os-cloud/ubuntu-2004-lts
+  shell: /bin/bash
+  machine_type: g1-small
+  allow_external_ingress:
+  - http
+  - https
+  - high-ports 

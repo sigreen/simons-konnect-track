@@ -1,0 +1,18 @@
+#!/bin/bash
+set -euxo pipefail
+
+echo "Checking if the cluster.crt, cluster.key and kong.conf are correct"
+
+if ! grep "BEGIN CERTIFICATE" /root/cluster.crt; then
+    fail-message "You have not copied the correct certificate to /root/cluster.crt"
+fi
+
+if ! grep "BEGIN PRIVATE KEY" /root/cluster.key; then
+    fail-message "You have not copied the private key to /root/cluster.key"
+fi
+
+if ! grep "data_plane" /root/kong.conf; then
+    fail-message "You have not copied the correct configuration to /root/kong.conf"
+fi
+
+exit 0

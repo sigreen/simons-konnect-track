@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# This script runs when the platform setup the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+echo "This is the setup script - creating Kong crt/key/conf files"
+touch cluster.crt
+touch cluster.key
+touch kong.conf
+echo "Downloading Kong"
+curl -Lo kong-enterprise-edition-3.0.1.0.all.deb "https://download.konghq.com/gateway-3.x-ubuntu-$(lsb_release -sc)/pool/all/k/kong-enterprise-edition/kong-enterprise-edition_3.0.1.0_amd64.deb"
+apt-get update -y
+apt-get install zlib1g-dev -y
+apt --fix-broken install -y
+dpkg -i kong-enterprise-edition-3.0.1.0.all.deb
+rm -rf kong-enterprise-edition-3.0.1.0.all.deb
+apt-get install jq -y
+echo "Kong & jq are installed"
+exit 0

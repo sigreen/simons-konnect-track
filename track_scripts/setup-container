@@ -1,0 +1,17 @@
+#!/bin/bash 
+
+# Wait for the Instruqt host bootstrap to finish
+until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    sleep 1
+done
+
+# Install curL
+apt update --yes
+apt install curl --yes
+
+# Install decK
+curl -sL https://github.com/kong/deck/releases/download/v1.16.1/deck_1.16.1_linux_amd64.tar.gz -o deck.tar.gz
+tar -xf deck.tar.gz -C /tmp
+cp /tmp/deck /usr/local/bin/
+rm deck.tar.gz

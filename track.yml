@@ -1,0 +1,15 @@
+slug: simons-konnect-track
+id: xegxdjgkyo1g
+title: Simon's Konnect Track
+teaser: Learn how to setup up Konnect Cloud runtimes and secure upstream services
+description: Get started quickly with setting up a Konnect Cloud runtime instances.  You'll
+  also learn how to configure a route and service using Kong's declarative language,
+  decK.
+icon: https://cdn.instruqt.com/assets/templates/ubuntu.png
+tags: []
+owner: kong
+developers:
+- simon.green@konghq.com
+private: true
+published: false
+checksum: "2616950446639739337"

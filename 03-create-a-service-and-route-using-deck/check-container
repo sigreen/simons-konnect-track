@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euxo pipefail
+
+echo "Checking if the text file quickstart exists."
+deck dump --konnect-runtime-group-name default --konnect-token-file pat    
+
+if ! grep "name: CountryQL" /root/kong.yaml; then
+    fail-message "Konnect doesn't have the correct Service, CountryQL, configured."
+fi

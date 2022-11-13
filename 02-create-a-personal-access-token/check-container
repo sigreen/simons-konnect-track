@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euxo pipefail
+
+echo "Checking if the text file quickstart exists."
+
+if [ -f /root/pat ]
+then
+    echo "The text file pat exists"
+else
+    fail-message "There is no text file named pat, did you create it?"
+fi
